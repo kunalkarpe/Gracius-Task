@@ -2,12 +2,11 @@ import { Outlet } from "react-router-dom"
 import Breadcrumb from "../../components/BreadCrumb/BreadCrumb"
 import Table from "../../components/Table/Table"
 import Accordion from "../../ui/Accordian/Accordian"
+import Button from "../../ui/Button/Button"
 import Card from "../../ui/Cards/Card"
 import AddTypeModal from "./component/AddType"
-import { DISBURS_CAPSULE_DATA, DISBURS_CARDS_CONSTANT, DISBURS_USERS } from "./disbursment.constant"
+import { DISBURS_CAPSULE_DATA, DISBURS_CARDS_CONSTANT, DISBURS_USERS, DOT_STYLES, STATUS_STYLES } from "./disbursment.constant"
 import { useDisburse } from "./hooks/useDisbursment"
-import { EyeIcon } from "lucide-react"
-import Button from "../../ui/Button/Button"
 
 function Disbursment() {
     const { states: { checkedColumn, setCheckedColumn, setShowModal, setTitle, showModal, title }, function: { handleSubmit }, routing: { navigateTo } } = useDisburse()
@@ -22,16 +21,32 @@ function Disbursment() {
             header: "Disbursement Date",
             accessorFn: (row) => row?.disbursementDate,
             cell: (cell) => <div>{cell.row.original?.disbursementDate}</div>
+
         },
         {
             header: "Loan id",
             accessorFn: (row) => row?.details?.loanId,
-            cell: (cell) => <div>{cell.row.original?.details?.loanId}</div>
+            cell: (cell) => {
+                const loanId = cell.row.original?.id
+                return (
+                    <Button className="w-fit h-7 flex items-center justify-center cursor-pointer text-darkViolet rounded-sm" buttonType={"tertiary"} btnText={loanId} onClick={() => {
+                        return navigateTo({
+                            url: `/rms/disbursement/${loanId}`
+                        })
+                    }} />
+                )
+            },
+            size: 800,
         },
         {
             header: "Status",
             accessorFn: (row) => row?.status,
-            cell: (cell) => <div className="flex justify-start">{cell.row.original?.status}</div>
+            cell: (cell) => {
+                const status = cell.row.original.status
+                return (
+                    <span className={`h-5.5 w-21.75 rounded-sm font-medium text-xs py-0.5 px-1.5 flex justify-center gap-1 items-center  ${STATUS_STYLES[status]}`}> <span className={`h-1.5 w-1.5 rounded-full ${DOT_STYLES[status]}`} /> {status}</span>
+                )
+            }
         },
         {
             header: "Applicant Name",
@@ -62,24 +77,7 @@ function Disbursment() {
             accessorFn: (row) => row?.creditExecutive,
             cell: (cell) => <div className="flex justify-start">{cell.row.original?.creditExecutive}</div>
         },
-        {
-            header: "Actions",
-            accessorFn: () => { },
 
-            cell: (cell) => {
-                const loanId = cell.row.original?.id
-                console.log(cell.row.original)
-                return (
-
-                    <Button className="w-7 h-7 border flex items-center justify-center border-warning rounded-sm" buttonType={"tertiary"} btnText={""} onClick={() => {
-                        return navigateTo({
-                            url: `/rms/disbursement/${loanId}`
-                        })
-                    }} icon={<EyeIcon className="size-4 text-warning  rounded-xs!" />} />
-
-                )
-            }
-        }
     ]
 
     return (

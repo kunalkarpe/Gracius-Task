@@ -289,19 +289,21 @@ export const SINGLE_DISBURSE_TABLE_NAME = [
 
 export const STATUS_STYLES = {
     Draft: "bg-gray-100 text-gray-600 ring-1 ring-gray-400",
-    Submitted: "bg-info/40 text-info ring-1 ring-info",
-    Verified: "bg-success/40 text-success ring-1 ring-success",
+    Verified: "bg-info/10 text-info ring-1 ring-info",
+    Submitted: "bg-success/10 text-success ring-1 ring-success",
     Processed: "bg-warning/10 text-[#A16207] ring-1 ring-warning",
     Rejected: "bg-error/40 text-error ring-1 ring-error",
+    Audited: "bg-darkViolet/10 text-darkViolet ring-1 ring-darkViolet"
 };
 
 export const DOT_STYLES = {
 
     Draft: "bg-gray-500",
-    Submitted: "bg-info",
-    Verified: "bg-success",
+    Verified: "bg-info",
+    Submitted: "bg-success",
     Processed: "bg-warning",
     Rejected: "bg-error",
+    Audited: "bg-darkViolet"
 
 }
 

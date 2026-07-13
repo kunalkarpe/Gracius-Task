@@ -32,7 +32,7 @@ const Table = ({ tableData, tableColumnSchema, column, setColumn, onNextClick, l
         setSelectedCol(filteredCol)
     }
     const startingNumber = pageNo === 1 ? 0 : (pageNo * perPage) - perPage
-    const endingNumber = pageNo === 1 ? perPage : startingNumber * perPage
+    const endingNumber = pageNo === 1 ? perPage : pageNo * perPage
     const tableSlicedData = tableData?.slice(startingNumber, endingNumber)
     const handleNextPage = () => { setPageno(pageNo + 1) }
     const handlePrevPage = () => { setPageno(pageNo - 1) }

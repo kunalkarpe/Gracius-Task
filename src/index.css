@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme{
+@theme inline {
     --color-primary:#7F56D9;
     --color-success:#16A34A;
     --color-warning:#EAB308;
@@ -10,6 +10,7 @@
     --color-pinky:#BE185D;
     --color-secondary:#FAFAFA;
     --color-borderSecondary:#E5E5E5;
+    --color-darkViolet:#7F56D9
 }
 html, body, #root {
   height: 100%;
