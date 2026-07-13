@@ -50,9 +50,11 @@ const ViewApplication = ({ findDetails, isOpen, onToggle }) => {
         }
     ]
     return (
-        
+        <div className="flex max-w-full">
+
             <ViewData isOpen={isOpen} onToggle={onToggle} icon={<UserRoundCheck className="size-4" />} columnSchema={applicantInformationSchema} label={"Applicant Information"} tableData={findDetails?.details?.applicantInfo} />
-      
+        </div>
+
     )
 }
 

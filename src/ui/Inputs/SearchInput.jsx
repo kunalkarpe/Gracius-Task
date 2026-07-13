@@ -22,7 +22,6 @@ function SearchInput({ placeholder = "Search", searchClassName = "", className =
             window.removeEventListener("keydown", handleKeyDown);
         };
     }, [shortcutKey]);
-
     return (
         <div className={`flex items-center justify-between px-2 gap-2 bg-[#42307D] rounded-sm ${className}`}>
             <div className="flex items-center justify-between ps-2 gap-2">
@@ -30,7 +29,7 @@ function SearchInput({ placeholder = "Search", searchClassName = "", className =
                 <Search className={`${searchClassName} size-4 text-white`} />
                 <input ref={inputRef} value={value} onChange={onChange} type="text" className={`text-white w-full h-8 outline-none text-sm ${inputClassname}`} placeholder={placeholder} />
             </div>
-            {shortcutKey && (
+            {!value && shortcutKey && (
 
                 <span className="text-[#A3A3A3] text-xs ring-1 ring-borderSecondary py-0.5 px-1.5 rounded-xs">K</span>
             )}

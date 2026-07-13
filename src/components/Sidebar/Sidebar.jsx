@@ -9,7 +9,7 @@ function Sidebar() {
     const location = useLocation()
 
     return (
-        <aside className="h-full w-[288px] bg-linear-to-bl from-[#2C1C5F] from-70% border to-darkBlue flex flex-col min-h-0 overflow-hidden relative">
+        <div className="h-full md:w-12  xl:w-[288px] bg-linear-to-bl from-[#2C1C5F] from-70% border to-darkBlue flex flex-col min-h-0 overflow-hidden relative">
 
             {/* Fixed: logo */}
             <div className="border-b border-white/20 p-4 shrink-0">
@@ -83,7 +83,7 @@ function Sidebar() {
                     })}
                 </div>
             </section>
-        </aside>
+        </div>
     )
 }
 

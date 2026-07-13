@@ -65,9 +65,9 @@ const Table = ({ tableData, tableColumnSchema, column, setColumn, onNextClick, l
             <div className="flex justify-between">
 
                 <div className="flex w-full h-17 gap-2 divide-x-2 divide-borderSecondary items-center">
-                    <div className="flex items-center gap-1 w-36 pe-2">
+                    <div className="flex items-center justify-center gap-1 sm:w-38 md:w-44 ">
                         <p className='text-[#404040] text-sm font-medium'>Page</p>
-                        <input type="text" className='h-9 w-9 rounded-sm ring-1 ring-[#D4D4D4]   text-center' value={pageNo} onChange={(e) => setPageno(e.target.value)} />
+                        <input type="text" className='md:h-9 md:w-9 sm:w-7 sm:h-7  rounded-sm ring-1 ring-[#D4D4D4] text-center' value={pageNo} onChange={(e) => setPageno(e.target.value)} />
                         of {totalPage}
                     </div>
                     <div className="flex gap-2 items-center  w-full">
@@ -81,19 +81,19 @@ const Table = ({ tableData, tableColumnSchema, column, setColumn, onNextClick, l
                         }} options={PER_PAGE} value={perPage} />
                     </div>
                 </div>
-                <div className="flex w-full gap-2 items-center">
-                    <Button disabled={pageNo === 1} buttonType={"tertiary"} className='h-9 w-9  border flex justify-center items-center border-[#D4D4D4] rounded-sm' btnText={""} onClick={handlePrevPage} type='button' icon={<ChevronLeft className='size-4 text-[#D4D4D4]' />} />
+                <div className="flex w-full  gap-2 items-center justify-end">
+                    <Button disabled={pageNo === 1} buttonType={"tertiary"} className='md:h-9 md:w-9 sm:w-7 sm:h-7  border flex justify-center items-center border-[#D4D4D4] rounded-sm' btnText={""} onClick={handlePrevPage} type='button' icon={<ChevronLeft className='size-4 text-[#D4D4D4]' />} />
                     <div className="flex gap-2">
 
                         {
                             Array.from({ length: totalPage })?.map((_, i) => {
                                 return (
-                                    <Button buttonType={"tertiary"} className={`h-9 w-9 rounded-sm  ${pageNo === (i + 1) ? "ring-1 ring-secondary bg-secondary " : ""}`} btnText={i + 1} onClick={() => setPageno(i + 1)} />
+                                    <Button buttonType={"tertiary"} className={`md:h-9 md:w-9 sm:w-7 sm:h-7 rounded-sm  ${pageNo === (i + 1) ? "ring-1 ring-secondary bg-secondary " : ""}`} btnText={i + 1} onClick={() => setPageno(i + 1)} />
                                 )
                             })
                         }
                     </div>
-                    <Button disabled={pageNo === totalPage} buttonType={"tertiary"} className='h-9 w-9 border flex justify-center items-center border-[#D4D4D4] rounded-sm' btnText={""} onClick={handleNextPage} type='button' icon={<ChevronRight className='size-4 text-[#D4D4D4]' />} />
+                    <Button disabled={pageNo === totalPage} buttonType={"tertiary"} className='h-9 w-9 sm:w-7 sm:h-7 border flex justify-center items-center border-[#D4D4D4] rounded-sm' btnText={""} onClick={handleNextPage} type='button' icon={<ChevronRight className='size-4 text-[#D4D4D4]' />} />
 
                 </div>
             </div>

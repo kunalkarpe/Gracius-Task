@@ -34,7 +34,7 @@ const SingleDisuburseUser = () => {
                         <div className="flex gap-4 items-center">
 
                             <p className="font-semibold text-[#171717] text-xl">{findDetails?.applicantName}</p>
-                            <span className={`h-5.5 w-21.75 rounded-sm font-medium text-xs py-0.5 px-1.5 flex justify-center gap-1 items-center  ${STATUS_STYLES[findDetails?.status]}`}> <span className={`h-1.5 w-1.5 rounded-full ${DOT_STYLES[findDetails?.status]}`} /> {findDetails?.status}</span>
+                            <span className={`h-5.5  w-21.75 rounded-sm font-medium text-xs py-0.5 px-1.5 flex justify-center gap-1 items-center  ${STATUS_STYLES[findDetails?.status]}`}> <span className={`h-1.5 w-1.5 rounded-full ${DOT_STYLES[findDetails?.status]}`} /> {findDetails?.status}</span>
                         </div>
                         <p className="text-sm text-[#525252] font-normal">{findDetails?.details?.loanType}</p>
                     </div>
@@ -42,7 +42,7 @@ const SingleDisuburseUser = () => {
                 <div className="flex flex-col gap-4 divide-y divide-borderSecondary">
 
                     {/* Cards */}
-                    <div className="grid grid-cols-5 gap-2 pb-4">
+                    <div className="grid md:grid-cols-5   sm:grid-cols-3 gap-2 pb-4">
                         {SINGLE_DISBURS_CARDS_CONSTANT?.map((disUnit, i) => {
 
                             const comm = findDetails?.details?.commission?.reduce((acc, curVal) => {
@@ -61,20 +61,20 @@ const SingleDisuburseUser = () => {
                         })}
                     </div>
 
-                    <div className="flex w-full gap-6">
+                    <div className="flex lg:flex-row md:flex-col sm:flex-col w-full overflow-auto gap-6">
                         {/* Table nmas */}
-                        <div className="flex flex-col gap-2 w-54.25">
+                        <div className="flex md:flex-row lg:flex-col gap-2 md:min-w-24 lg:min-w-54.25">
                             {SINGLE_DISBURSE_TABLE_NAME?.map((tUnit, i) => {
                                 const isActive = openTableIds?.length === 1 && openTableIds.includes(tUnit?.id)
                                 return (
-                                    <button key={i} type="button" onClick={() => openTable(tUnit?.id)} className={`h-9 cursor-pointer text-center flex items-center justify-start font-medium  px-2 rounded-sm text-sm ${isActive ? "bg-[#F9F5FF] text-primary  " : "text-[#737373]"}`} key={tUnit?.id}>
+                                    <button key={i} type="button" onClick={() => openTable(tUnit?.id)} className={`h-9 cursor-pointer text-center flex lg:items-center lg:justify-start font-medium  px-2 md:rounded-md rounded-sm lg:text-sm sm:text-sm md:h-12 md:text-wrap  md:items-center md:justify-center  ${isActive ? "bg-[#F9F5FF] text-primary  " : "text-[#737373]"}`} key={tUnit?.id}>
                                         {tUnit?.name}
                                     </button>
                                 )
                             })}
 
                         </div>
-                        <div className="flex flex-col flex-1 gap-4">
+                        <div className="flex flex-col  flex-1 gap-4">
                             <ViewApplication isOpen={isTableOpen(1)} onToggle={() => toggleTable(1)} findDetails={findDetails} />
                             <ViewLoanDetails isOpen={isTableOpen(2)} onToggle={() => toggleTable(2)} findDetails={findDetails} />
                             <ViewDisbursment isOpen={isTableOpen(3)} onToggle={() => toggleTable(3)} findDetails={findDetails} />

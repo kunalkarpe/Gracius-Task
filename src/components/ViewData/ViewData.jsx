@@ -17,13 +17,13 @@ const ViewData = ({ isOpen, onToggle, defaultOpen = true, isTableView = true, co
     }
 
     const content = (
-        <div className="flex  w-full h-full">
-            {isTableView ? <TableBase selecetedCol={columnSchema} tableData={tableData} /> : comp}
+        <div className="flex  max-w-full h-full">
+            {isTableView ? <TableBase className='' selecetedCol={columnSchema} tableData={tableData} /> : comp}
         </div>
     )
 
     return (
-        <div className="h-full w-full">
+        <div className="h-full w-full xl:max-w-[calc(100vw-600px)]  lg:max-w-[calc(100vw-360px)] md:max-w-[calc(100vw-120px)]">
             <div className="ring-1 ring-borderSecondary rounded-md overflow-hidden">
                 <button type="button" onClick={handleToggle} aria-expanded={actualOpen} className={`px-4 py-3 flex w-full rounded-t-md bg-secondary items-center justify-between group ${className}`}>
                     <div className="flex items-center font-medium justify-center gap-2">
@@ -38,7 +38,7 @@ const ViewData = ({ isOpen, onToggle, defaultOpen = true, isTableView = true, co
                     <ChevronDownIcon className={`${chevronClass} size-4 ${actualOpen ? "rotate-180" : ""}`} />
                 </button>
                 {actualOpen ? (
-                    <div className="p-4">
+                    <div className="p-4" >
                         {content}
                     </div>
                 ) : <></>}

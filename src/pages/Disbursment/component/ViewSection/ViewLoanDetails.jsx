@@ -19,20 +19,20 @@ const ViewLoanDetails = ({ findDetails, isOpen, onToggle }) => {
 
         <ViewData isOpen={isOpen} onToggle={onToggle} icon={<Banknote className="size-4" />} label={"Loan Details"} isTableView={false} comp={
             <div className="flex flex-col gap-4 w-full">
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-4 lg:grid-cols-3 md:grid-cols-3 md:gap-4 lg:gap-2">
                     {SINGLE_DISBURS_LOAN_DETAILS?.map((loanUnit, i) => {
 
                         return (
-                            <div key={i} className="flex flex-col gap-1 h-21">
+                            <div key={i} className="flex flex-col gap-1 bordermd:h-10 lg:h-21">
                                 <span className='font-normal text-sm text-[#525252]'>{loanUnit?.name}</span>
                                 <span className={`font-medium ${loanUnit?.label === "loantype" ? " h-5 w-20 text-xs   flex items-center justify-center text-darkBlue ring-1 bg-darkBlue/20 ring-darkBlue/40 rounded-full" : "text-[#171717]"}`}>{loanObj[loanUnit?.label]}</span>
                             </div>
                         )
                     })}
                 </div>
-                <div className="flex flex-col gap-2 h-30">
+                <div className="flex flex-col gap-2 lg:h-30">
                     <p className='font-medium text-sm'>Sanction Details:</p>
-                    <div className="grid grid-cols-4 gap-2 ">
+                    <div className="grid grid-cols-4 lg:grid-cols-3 md:grid-cols-3 gap-2">
                         {SINGLE_DISBURS_SANCTION_DETAILS?.map((loanUnit, i) => {
 
                             return (
@@ -44,9 +44,9 @@ const ViewLoanDetails = ({ findDetails, isOpen, onToggle }) => {
                         })}
                     </div>
                 </div>
-                <div className="flex flex-col gap-2 h-30">
+                <div className="flex flex-col gap-2 lg:h-30">
                     <p className='font-medium text-sm'>Team Details:</p>
-                    <div className="grid grid-cols-4 gap-2">
+                    <div className="grid grid-cols-4 lg:grid-cols-3 md:grid-cols-3 gap-2">
                         {SINGLE_DISBURS_TEAM_DETAILS?.map((loanUnit, i) => {
 
                             return (
