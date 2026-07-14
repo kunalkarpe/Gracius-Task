@@ -45,8 +45,7 @@ function Disbursment() {
                 const status = cell.row.original.status
                 return (
                     <div className="w-full px-2">
-
-                        <span className={`h-5.5 w-fit shrink-0 border rounded-sm font-medium text-xs py-0.5 px-1.5 flex justify-center gap-1 items-center  ${STATUS_STYLES[status]}`}> <span className={`h-1.5 w-1.5 rounded-full ${DOT_STYLES[status]}`} /> {status}</span>
+                        <span className={`h-5.5 w-fit border rounded-sm font-medium text-xs py-0.5 px-1.5 flex justify-center gap-1 items-center  ${STATUS_STYLES[status]}`}> <span className={`h-1.5 w-1.5 rounded-full ${DOT_STYLES[status]}`} /> {status}</span>
                     </div>
                 )
             },
@@ -107,7 +106,7 @@ function Disbursment() {
                 </div>
             </div>
             {/* Cards */}
-            <div className="grid grid-cols-6 gap-2 sm:grid-cols-3 md:grid-cols-4   overflow-auto ">
+            <div className="grid lg:grid-cols-6 gap-2 sm:grid-cols-3 md:grid-cols-4   overflow-auto ">
                 {DISBURS_CARDS_CONSTANT?.map((disUnit) => {
                     return (
                         <Card key={disUnit?.id} desc={disUnit?.desc} title={disUnit?.title} />
